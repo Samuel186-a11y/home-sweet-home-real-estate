@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Home Sweet Home Real Estate Properties — trusted property sales, land and homes in Enugu and beyond.">
+  <title>Home Sweet Home Real Estate Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0b5d45;
+      --green-dark:#073d2f;
+      --gold:#d9a441;
+      --cream:#f7f3ea;
+      --ink:#12201b;
+      --muted:#65716c;
+      --white:#fff;
+      --line:#e5e8e5;
+      --shadow:0 18px 50px rgba(8,35,26,.10);
+      --radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img,video{display:block;width:100%}
+    .container{width:min(1120px,92%);margin:auto}
+    .topbar{background:var(--green-dark);color:#fff;font-size:.9rem}
+    .topbar .container{display:flex;justify-content:space-between;gap:15px;padding:9px 0}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-mark{width:44px;height:44px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:23px;box-shadow:0 8px 18px rgba(11,93,69,.2)}
+    .brand strong{display:block;font-family:"Playfair Display",serif;font-size:1.05rem;line-height:1.1}
+    .brand small{color:var(--muted);font-size:.72rem}
+    .navlinks{display:flex;align-items:center;gap:26px;font-weight:600;font-size:.94rem}
+    .navlinks a:hover{color:var(--green)}
+    .nav-cta{background:var(--green);color:#fff!important;padding:11px 17px;border-radius:999px}
+    .menu{display:none;background:none;border:0;font-size:26px}
+    .hero{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;overflow:hidden}
+    .hero-grid{min-height:600px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:70px 0}
+    .eyebrow{color:#f0c86b;text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:800;margin-bottom:14px}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(2.8rem,6vw,5rem);line-height:1.02;max-width:700px}
+    .hero p{color:#dfeae5;max-width:590px;font-size:1.08rem;margin:22px 0 30px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:12px;font-weight:800;border:1px solid transparent}
+    .btn-primary{background:var(--gold);color:#17120a}
+    .btn-light{background:#fff;color:var(--green-dark)}
+    .hero-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);padding:14px;border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.18)}
+    .hero-card img{height:420px;object-fit:cover;border-radius:18px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{padding:15px;background:#fff;border-radius:14px;color:var(--ink)}
+    .stat b{font-size:1.15rem;color:var(--green);display:block}
+    .section{padding:85px 0}
+    .section.alt{background:var(--cream)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}
+    .section-head h2{font-family:"Playfair Display",serif;font-size:2.35rem;line-height:1.1}
+    .section-head p{max-width:570px;color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 8px 30px rgba(10,30,22,.05)}
+    .card-media{height:235px;position:relative;overflow:hidden}
+    .card-media img,.card-media video{height:100%;object-fit:cover}
+    .tag{position:absolute;left:15px;top:15px;background:var(--green);color:#fff;padding:7px 11px;border-radius:999px;font-size:.75rem;font-weight:800}
+    .card-body{padding:21px}
+    .card h3{font-family:"Playfair Display",serif;font-size:1.35rem;line-height:1.2;margin-bottom:7px}
+    .location{color:var(--muted);font-size:.9rem;margin-bottom:13px}
+    .price{font-size:1.28rem;font-weight:900;color:var(--green);margin:10px 0 16px}
+    .features{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+    .feature{background:#f1f6f3;border-radius:8px;padding:6px 9px;font-size:.78rem;color:var(--green-dark)}
+    .card-actions{display:flex;gap:9px}
+    .mini-btn{flex:1;text-align:center;padding:11px;border-radius:10px;font-weight:800;border:1px solid var(--line);font-size:.88rem}
+    .mini-btn.green{background:var(--green);color:#fff;border-color:var(--green)}
+    .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+    .about-photo{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-photo img{height:500px;object-fit:cover}
+    .about h2{font-family:"Playfair Display",serif;font-size:2.5rem;line-height:1.1;margin-bottom:18px}
+    .about p{color:var(--muted);margin-bottom:16px}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+    .check{font-weight:700;font-size:.92rem}
+    .check span{color:var(--gold);margin-right:7px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{padding:27px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .service-icon{width:45px;height:45px;border-radius:12px;background:#edf5f1;color:var(--green);display:grid;place-items:center;font-size:22px;margin-bottom:17px}
+    .service h3{margin-bottom:7px}
+    .service p{color:var(--muted);font-size:.9rem}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .contact-panel{padding:35px;border-radius:22px;background:var(--green-dark);color:#fff}
+    .contact-panel h2{font-family:"Playfair Display",serif;font-size:2.35rem;line-height:1.1;margin-bottom:13px}
+    .contact-panel p{color:#d7e4df;margin-bottom:22px}
+    .contact-item{padding:15px 0;border-top:1px solid rgba(255,255,255,.14)}
+    .contact-item small{display:block;color:#a9c4ba;margin-bottom:3px}
+    form{padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff}
+    label{display:block;font-weight:700;font-size:.85rem;margin:0 0 6px}
+    input,select,textarea{width:100%;padding:13px 14px;border:1px solid #dfe4e1;border-radius:10px;margin-bottom:15px;font:inherit;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(11,93,69,.08)}
+    textarea{min-height:110px;resize:vertical}
+    footer{background:#061f18;color:#c9d9d3;padding:34px 0}
+    footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    footer strong{color:#fff}
+    .float-wa{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:28px;box-shadow:0 12px 30px rgba(0,0,0,.22)}
+    .notice{font-size:.82rem;color:var(--muted);margin-top:9px}
+    @media(max-width:850px){
+      .navlinks{display:none}
+      .menu{display:block}
+      .hero-grid,.about,.contact{grid-template-columns:1fr}
+      .hero{padding-bottom:25px}
+      .hero-grid{padding-top:45px}
+      .hero-card img{height:330px}
+      .cards,.services{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:580px){
+      .topbar .container{font-size:.76rem}
+      nav{height:68px}
+      .brand small{display:none}
+      .cards,.services,.stats,.checks{grid-template-columns:1fr}
+      .section{padding:65px 0}
+      .section-head{display:block}
+      .section-head h2{margin-bottom:10px}
+      h1{font-size:2.7rem}
+      .about-photo img{height:360px}
+      .card-actions{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Professional real estate services in Enugu & beyond</span>
+      <span>Call: 0916 298 1186</span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">
+        <div class="brand-mark">⌂</div>
+        <div>
+          <strong>Home Sweet Home</strong>
+          <small>Real Estate Properties</small>
+        </div>
+      </a>
+      <div class="navlinks">
+        <a href="#properties">Properties</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.me/2349162981186?text=Hello%20Home%20Sweet%20Home%20Real%20Estate%20Properties%2C%20I%27d%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Find your place. Build your future.</div>
+          <h1>Beautiful properties. Better decisions.</h1>
+          <p>Welcome to <b>Home Sweet Home Real Estate Properties</b>. We connect buyers with homes and land opportunities while making property enquiries, inspections and appointments simple.</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#properties">Explore Properties</a>
+            <a class="btn btn-light" href="https://wa.me/2349162981186?text=Hello%20Kalu%20Samuel%2C%20I%27m%20interested%20in%20a%20property." target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>₦2.5m</b><span>Featured land / plot</span></div>
+            <div class="stat"><b>15 plots</b><span>Available in the featured offer</span></div>
+            <div class="stat"><b>Enugu</b><span>Based in GRA</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="assets/property-modern-home.jpg" alt="Modern residential property">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="properties">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" style="color:var(--green)">Featured listings</div>
+            <h2>Properties worth seeing</h2>
+          </div>
+          <p>Explore the current listings below. For availability, inspection and full documentation details, contact Kalu Samuel directly.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-media">
+              <video controls poster="assets/land-400sqm.jpg" preload="metadata">
+                <source src="assets/land-property-video.mp4" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+              <span class="tag">LAND FOR SALE</span>
+            </div>
+            <div class="card-body">
+              <h3>15 Plots of Land — 60 × 100 Each</h3>
+              <div class="location">📍 Landmark: Close to Ebuka Obi's Ministry</div>
+              <div class="features">
+                <span class="feature">15 plots</span>
+                <span class="feature">60 × 100 each</span>
+                <span class="feature">DOA</span>
+                <span class="feature">Allocation Paper</span>
+              </div>
+              <div class="price">₦2.5m per plot</div>
+              <div class="card-actions">
+                <a class="mini-btn green" href="https://wa.me/2349162981186?text=Hello%20Kalu%20Samuel%2C%20I%27m%20interested%20in%20the%2015%20plots%20of%20land%20priced%20at%20%E2%82%A62.5m%20each." target="_blank" rel="noopener">Buy / Enquire</a>
+                <a class="mini-btn" href="tel:+2349162981186">Call</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="assets/property-duplex.jpg" alt="Five bedroom duplex in Old GRA, Enugu">
+              <span class="tag">HOUSE</span>
+            </div>
+            <div class="card-body">
+              <h3>5-Bedroom Duplex + BQ</h3>
+              <div class="location">📍 Old GRA, Enugu</div>
+              <div class="features">
+                <span class="feature">5 bedrooms</span>
+                <span class="feature">BQ</span>
+                <span class="feature">Gatehouse</span>
+              </div>
+              <div class="price">Price on request</div>
+              <div class="card-actions">
+                <a class="mini-btn green" href="https://wa.me/2349162981186?text=Hello%20Kalu%20Samuel%2C%20I%27m%20interested%20in%20the%205-bedroom%20duplex%20in%20Old%20GRA%2C%20Enugu." target="_blank" rel="noopener">Enquire</a>
+                <a class="mini-btn" href="tel:+2349162981186">Call</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="assets/property-modern-home.jpg" alt="Modern luxury residential property">
+              <span class="tag">PROPERTY</span>
+            </div>
+            <div class="card-body">
+              <h3>Modern Residential Property</h3>
+              <div class="location">📍 Enugu</div>
+              <div class="features">
+                <span class="feature">Modern design</span>
+                <span class="feature">Secure setting</span>
+                <span class="feature">Inspection available</span>
+              </div>
+              <div class="price">Price on request</div>
+              <div class="card-actions">
+                <a class="mini-btn green" href="https://wa.me/2349162981186?text=Hello%20Kalu%20Samuel%2C%20I%27d%20like%20more%20details%20about%20the%20modern%20residential%20property." target="_blank" rel="noopener">Enquire</a>
+                <a class="mini-btn" href="tel:+2349162981186">Call</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="notice">Property availability and prices can change. Confirm current availability, title documents and terms before payment.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="about">
+      <div class="container about">
+        <div class="about-photo">
+          <img src="assets/land-400sqm.jpg" alt="Residential area and land in Enugu">
+        </div>
+        <div>
+          <div class="eyebrow" style="color:var(--green)">About us</div>
+          <h2>Your home, land and property journey — made simpler.</h2>
+          <p><b>Home Sweet Home Real Estate Properties</b> is a property business based at Abakaliki Road, GRA, Enugu. We help clients discover property opportunities and connect with suitable listings for purchase.</p>
+          <p>Whether you are searching for land, a family home or an investment opportunity, you can contact us to discuss your needs, request an inspection or book an appointment.</p>
+          <div class="checks">
+            <div class="check"><span>✓</span>Property enquiries</div>
+            <div class="check"><span>✓</span>Land opportunities</div>
+            <div class="check"><span>✓</span>House listings</div>
+            <div class="check"><span>✓</span>Inspection appointments</div>
+          </div>
+          <a class="btn btn-primary" href="#contact">Book an Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" style="color:var(--green)">What we do</div>
+            <h2>Real estate services</h2>
+          </div>
+          <p>From the first enquiry to inspection and purchase discussions, we keep the process direct and convenient.</p>
+        </div>
+        <div class="services">
+          <div class="service">
+            <div class="service-icon">🏠</div>
+            <h3>Property Sales</h3>
+            <p>View available houses and property opportunities and enquire directly for current details.</p>
+          </div>
+          <div class="service">
+            <div class="service-icon">📍</div>
+            <h3>Land Opportunities</h3>
+            <p>Explore land listings, locations, plot sizes and available documentation information.</p>
+          </div>
+          <div class="service">
+            <div class="service-icon">📅</div>
+            <h3>Inspections & Appointments</h3>
+            <p>Book a convenient time to discuss a listing, arrange an inspection or ask questions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="container contact">
+        <div class="contact-panel">
+          <div class="eyebrow">Let's talk property</div>
+          <h2>Ready to find your next property?</h2>
+          <p>Send an enquiry on WhatsApp, call directly, or use the appointment form.</p>
+          <div class="contact-item">
+            <small>Representative</small>
+            <b>Kalu Samuel</b>
+          </div>
+          <div class="contact-item">
+            <small>Phone / WhatsApp</small>
+            <b>0916 298 1186</b>
+          </div>
+          <div class="contact-item">
+            <small>Office address</small>
+            <b>Abakaliki Road, GRA, Enugu 400102, Enugu State, Nigeria</b>
+          </div>
+          <div class="buttons" style="margin-top:22px">
+            <a class="btn btn-primary" href="https://wa.me/2349162981186?text=Hello%20Kalu%20Samuel%2C%20I%27d%20like%20to%20make%20a%20real%20estate%20enquiry." target="_blank" rel="noopener">WhatsApp Us</a>
+            <a class="btn btn-light" href="tel:+2349162981186">Call Now</a>
+          </div>
+        </div>
+
+        <form id="appointmentForm">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.7rem;margin-bottom:5px">Book an appointment</h3>
+          <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px">Submit your details and we'll prepare a WhatsApp message for you.</p>
+          <label for="name">Your name</label>
+          <input id="name" name="name" required placeholder="e.g. John Okafor">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" required placeholder="e.g. 080...">
+          <label for="property">Property interest</label>
+          <select id="property" name="property">
+            <option>15 plots — 60 × 100 land</option>
+            <option>5-bedroom duplex — Old GRA, Enugu</option>
+            <option>Modern residential property</option>
+            <option>Other / general enquiry</option>
+          </select>
+          <label for="date">Preferred appointment date</label>
+          <input id="date" name="date" type="date" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what you would like to inspect or discuss."></textarea>
+          <button class="btn btn-primary" type="submit" style="width:100%">Continue on WhatsApp</button>
+          <p class="notice">Your appointment request will open WhatsApp with the details filled in.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>Home Sweet Home Real Estate Properties</strong><br><small>Abakaliki Road, GRA, Enugu 400102</small></div>
+      <div><small>© <span id="year"></span> Home Sweet Home Real Estate Properties. All rights reserved.</small></div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/2349162981186?text=Hello%20Home%20Sweet%20Home%20Real%20Estate%20Properties." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◉</a>
+
+  <script>
+    function toggleMenu(){
+      const nav = document.querySelector('.navlinks');
+      if(getComputedStyle(nav).display === 'none'){
+        nav.style.display='flex';
+        nav.style.position='absolute';
+        nav.style.top='68px';
+        nav.style.left='4%';
+        nav.style.right='4%';
+        nav.style.flexDirection='column';
+        nav.style.alignItems='stretch';
+        nav.style.padding='18px';
+        nav.style.background='#fff';
+        nav.style.border='1px solid #e5e8e5';
+        nav.style.borderRadius='16px';
+        nav.style.boxShadow='0 18px 40px rgba(0,0,0,.12)';
+      } else {
+        nav.style.display='';
+      }
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('appointmentForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const property = document.getElementById('property').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value.trim() || 'I would like to book an appointment and discuss this property.';
+      const text =
+        `Hello Kalu Samuel, I would like to book an appointment.%0A%0A` +
+        `Name: ${encodeURIComponent(name)}%0A` +
+        `Phone: ${encodeURIComponent(phone)}%0A` +
+        `Property: ${encodeURIComponent(property)}%0A` +
+        `Preferred date: ${encodeURIComponent(date)}%0A` +
+        `Message: ${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/2349162981186?text=${text}`, '_blank');
+    });
+  </script>
+</body>
+</html>
